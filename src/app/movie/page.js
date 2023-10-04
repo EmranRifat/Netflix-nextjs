@@ -28,11 +28,13 @@ const movie = async () => {
             {/* <Link href="movie/100" >
                     plz GOO
             </Link> */}
-            {
+           <div className={styles.card_section}>
+           {
               allData?.map((data)=>{
                 return <MovieCard key={data.id} {...data}/>
               })
             }
+           </div>
             </div>
            </section>
         </>

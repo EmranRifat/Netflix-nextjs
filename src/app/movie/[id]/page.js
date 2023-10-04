@@ -1,9 +1,10 @@
 import React from 'react';
-
-const page = ({params}) => {
+import styles from "@/app/styles/common.module.css"
+import Image from 'next/image';
+const page = async({params}) => {
     const id=params.id;
     
-    const url = "https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=50&limit_suggestions=20&lang=en"
+    const url = `https://netflix54.p.rapidapi.com/search/?ids=${id}&lang=en`;
   
     const options = {
       method: 'GET',
@@ -14,12 +15,24 @@ const page = ({params}) => {
     };
 
 
-
-
+const res=await fetch(url, options);
+const data =await res.json();
+const main_data=data[0].details;
+// console.log(object);
 
     return (
-        <div>
-            <h1>i am dynamic site : {id}</h1>
+        <div className={styles.container}>
+        <h2 className={styles.movie_title}> Netflix\ <span>{main_data.type}</span></h2>
+        <div className={styles.card_section}>
+<div>
+    <Image src={main_data.backgroundImage.url} alt="image"  width={600} height={300}/>
+</div>
+<div>
+    <h1>{main_data.title}</h1>
+    <p>{main_data.synopsis}</p>
+</div>
+        </div>
+            
         </div>
     );
 };
