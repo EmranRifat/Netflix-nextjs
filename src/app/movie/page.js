@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
+import MovieCard from '../components/MovieCard';
+import styles from "@/app/styles/common.module.css"
 
 const movie = async () => {
 
@@ -16,16 +18,24 @@ const movie = async () => {
  const res= await fetch(url,options);
  const data=await res.json();
  const allData=data.titles;
- console.log(allData);
-   
+  //  console.log(allData);
     return (
         
-        <div>
+        <>
+           <section className={styles.movieSection}>
+            <div className={styles.container}>
             <h1>Movies all...</h1>
-            <Link href="movie/100" >
+            {/* <Link href="movie/100" >
                     plz GOO
-            </Link>
-        </div>
+            </Link> */}
+            {
+              allData?.map((data)=>{
+                return <MovieCard key={data.id} {...data}/>
+              })
+            }
+            </div>
+           </section>
+        </>
     );
 };
 

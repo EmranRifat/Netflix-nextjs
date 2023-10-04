@@ -4,11 +4,11 @@ import { Inter, Mulish } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
  
-const mulish = Mulish({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
+// const mulish = Mulish({
+//   weight: '400',
+//   subsets: ['latin'],
+//   display: 'swap',
+// })
 
 
 
@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={mulish.className}>
+      <body>
       <Header/>
       {children}
       </body>
