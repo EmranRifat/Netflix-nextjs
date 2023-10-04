@@ -3,7 +3,7 @@ import React from 'react';
 
 const movie = async () => {
 
- const url = process.env.RAPID_KEY;
+ const url = "https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=50&limit_suggestions=20&lang=en"
   
 
  const options = {
@@ -13,9 +13,10 @@ const movie = async () => {
      'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
    }
  };
- const res=await fetch(url,options);
+ const res= await fetch(url,options);
  const data=await res.json();
- console.log(data);
+ const allData=data.titles;
+ console.log(allData);
    
     return (
         
