@@ -5,6 +5,9 @@ import styles from "@/app/styles/common.module.css"
 
 const movie = async () => {
 
+
+  await new Promise(resolve => setTimeout(resolve, 2000));
+
  const url = "https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=50&limit_suggestions=20&lang=en"
   
 
@@ -24,7 +27,7 @@ const movie = async () => {
         <>
            <section className={styles.movieSection}>
             <div className={styles.container}>
-            <h1>Movies all...</h1>
+            <h1>Series & Movies</h1>
             {/* <Link href="movie/100" >
                     plz GOO
             </Link> */}
